@@ -1,0 +1,28 @@
+{
+  "name": "generator-vue-component",
+  "version": "1.0.0",
+  "description": "Scaffold a Vue component (*.vue) with Storybook setup (*.story.vue, *.stories.js)",
+  "author": {
+    "name": "bryanbuchs",
+    "email": "bryan@bryanbuchs.com"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "vue",
+    "storybook",
+    "yeoman-generator"
+  ],
+  "engines": {
+    "npm": ">= 4.0.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20",
+    "yeoman-generator": "^4.12.0",
+    "yosay": "^2.0.2"
+  },
+  "repository": "bryanbuchs/generator-vue-component",
+  "private": true
+}
