@@ -1,22 +1,46 @@
 import { action } from '@storybook/addon-actions'
 
-import DefaultStory from './Default.story.vue'
-// import AlternateStory from './Alternate.story.vue'
+import <%= name %> from '../<%= name %>.vue'
 
 export default {
-  title: 'GROUP/<%= title %>'
+  title: 'TODO/<%= title %>',
+  excludeStories: /.*Data$/
+  // argTypes: {
+  //   topic: {
+  //     control: {
+  //       type: 'inline-radio',
+  //       options: [
+  //         'climate',
+  //         'economics',
+  //         'education',
+  //         'media',
+  //         'gender',
+  //         'health',
+  //         'harmful',
+  //         'mental',
+  //         'sexual'
+  //       ]
+  //     }
+  //   }
+  // }
 }
 
 const actionsData = {
-  storyAction: action('clicked')
+  logEvent: action('clicked')
 }
 
-export const Default = () => ({
-  ...DefaultStory,
+const propData = {
+  // topic: 'climate'
+}
+
+const DefaultTemplate = (args, { argTypes }) => ({
+  components: { <%= name %> },
+  props: Object.keys(argTypes),
+  template: '<<%= tag %> @clicked="logEvent" />',
   methods: actionsData
 })
 
-// export const Alternate = () => ({
-//   ...AlternateStory,
-//   methods: actionsData
-// })
+export const Default = DefaultTemplate.bind({})
+Default.args = {
+  ...propData
+}

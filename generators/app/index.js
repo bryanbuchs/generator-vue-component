@@ -2,6 +2,8 @@
 const Generator = require('yeoman-generator')
 const _ = require('lodash')
 
+_.mixin({ pascalCase: _.flow(_.camelCase, _.upperFirst) })
+
 module.exports = class extends Generator {
   constructor (args, opts) {
     super(args, opts)
@@ -19,8 +21,6 @@ module.exports = class extends Generator {
   // }
 
   writing () {
-    _.mixin({ pascalCase: _.flow(_.camelCase, _.upperFirst) })
-
     const props = {
       tag: this.options.tag,
       name: _.pascalCase(this.options.tag),
@@ -39,10 +39,10 @@ module.exports = class extends Generator {
       props
     )
 
-    this.fs.copyTpl(
-      this.templatePath('stories/Default.story.vue'),
-      this.destinationPath(`${props.tag}/stories/Default.story.vue`),
-      props
-    )
+    // this.fs.copyTpl(
+    //   this.templatePath('stories/Default.story.vue'),
+    //   this.destinationPath(`${props.tag}/stories/Default.story.vue`),
+    //   props
+    // )
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "generator-vue-component",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Scaffold a Vue component (*.vue) with Storybook setup (*.story.vue, *.stories.js)",
   "author": {
     "name": "bryanbuchs",
