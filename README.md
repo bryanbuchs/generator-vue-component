@@ -13,7 +13,7 @@ npm install -g generator-vue-component
 Then generate your new project:
 
 ```bash
-yo vue-component
+yo vue-component component-name
 ```
 
 ## Getting To Know Yeoman
