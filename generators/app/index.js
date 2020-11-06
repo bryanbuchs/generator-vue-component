@@ -3,7 +3,6 @@ const Generator = require('yeoman-generator')
 const _ = require('lodash')
 
 module.exports = class extends Generator {
-
   constructor (args, opts) {
     super(args, opts)
     this.argument('tag', { type: String, required: true })
@@ -24,7 +23,8 @@ module.exports = class extends Generator {
 
     const props = {
       tag: this.options.tag,
-      name: _.pascalCase(this.options.tag)
+      name: _.pascalCase(this.options.tag),
+      title: _.startCase(this.options.tag)
     }
 
     this.fs.copyTpl(

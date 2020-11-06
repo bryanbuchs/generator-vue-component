@@ -4,7 +4,7 @@ import DefaultStory from './Default.story.vue'
 // import AlternateStory from './Alternate.story.vue'
 
 export default {
-  title: 'GROUP/<%= name %>'
+  title: 'GROUP/<%= title %>'
 }
 
 const actionsData = {

@@ -1,6 +1,6 @@
 <template>
   <div class="<%= tag %>">
-    <button @click.prevent="doSomething"><%= name %></button>
+    <button @click.prevent="doSomething"><%= title %></button>
   </div>
 </template>
 
