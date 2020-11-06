@@ -1,12 +1,12 @@
 <template>
   <div class="<%= tag %>">
-    
+    <button @click.prevent="doSomething"><%= name %></button>
   </div>
 </template>
 
 <script>
 export default {
-  name: '<%= name %>'
+  name: '<%= name %>',
 
   // props: {
   //   propName: {
@@ -28,11 +28,12 @@ export default {
   //   }
   // },
 
-  // methods: {
-  //   methodName () {
-  //     this.$emit('methodName')
-  //   }
-  // },
+  methods: {
+    doSomething () {
+      // tell the parent that we were clicked, pass data along
+      this.$emit('clicked', { key: 'value' })
+    }
+  }
 
   // watch: {
   //   name: (val, oldVal) => {}
@@ -42,6 +43,6 @@ export default {
 
 <style lang="less">
 .<%= tag %> {
-
+  
 }
 </style>

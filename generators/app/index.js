@@ -1,23 +1,30 @@
 'use strict'
-// const path = require('path')
 const Generator = require('yeoman-generator')
 const _ = require('lodash')
 
 module.exports = class extends Generator {
-  async prompting () {
-    this.answers = await this.prompt([
-      {
-        type: 'input',
-        name: 'name',
-        message: 'ComponentName'
-      }
-    ])
+
+  constructor (args, opts) {
+    super(args, opts)
+    this.argument('tag', { type: String, required: true })
   }
 
+  // async prompting () {
+  //   this.answers = await this.prompt([
+  //     {
+  //       type: 'input',
+  //       name: 'name',
+  //       message: 'ComponentName'
+  //     }
+  //   ])
+  // }
+
   writing () {
+    _.mixin({ pascalCase: _.flow(_.camelCase, _.upperFirst) })
+
     const props = {
-      tag: _.kebabCase(this.answers.name),
-      name: this.answers.name
+      tag: this.options.tag,
+      name: _.pascalCase(this.options.tag)
     }
 
     this.fs.copyTpl(
