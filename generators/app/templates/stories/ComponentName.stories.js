@@ -1,7 +1,7 @@
 import <%= name %> from '../<%= name %>.vue'
 
 import { action } from '@storybook/addon-actions'
-import data from './data.js'
+import SampleData from './data.js'
 
 export default {
   title: 'TODO/<%= title %>',
@@ -16,13 +16,13 @@ const actionsData = {
 }
 
 const propData = {
-  input: 'data'
+  input: SampleData
 }
 
 const DefaultTemplate = (args, { argTypes }) => ({
   components: { <%= name %> },
   props: Object.keys(argTypes),
-  template: `<<%= tag %> @clicked="logEvent" :input="input" />`,
+  template: '<<%= tag %> @clicked="logEvent" :input="input" />',
   methods: actionsData
 })
 

@@ -5,13 +5,13 @@
 </template>
 
 <script>
-// import ComponentName from "@/components/component-name/ComponentName.vue"
+// import AnotherComponent from "@/components/another-component/AnotherComponent.vue"
 
 export default {
   name: '<%= name %>',
 
   // components: {
-  //   ComponentName
+  //   AnotherComponent
   // },
 
   props: {
@@ -29,18 +29,32 @@ export default {
 
   // computed: {
   //   propertyName () {
-  //     return true
+  //     return `value is ${this.value}`
   //   }
   // },
 
-  // watch: {
-  //   keyName: function (val, oldVal) {},
-  //   propertyName: {
-  //     handler: 'doSomething',
-  //     immediate: false,
-  //     deep: false
-  //   }
+  // created () {
+  //   console.log('<%= tag %> created')
   // },
+
+  // mounted () {
+  //   console.log('<%= tag %> mounted')
+  // },
+
+  // beforeDestroy () {
+  //   console.log('<%= tag %> about to be destroyed')
+  // },
+
+  watch: {
+    value: function (val, oldVal) {
+      console.log('value changed to', val, 'was', oldVal)
+    },
+    input: {
+      handler: 'doSomething'
+      // immediate: true,
+      // deep: true
+    }
+  },
 
   methods: {
     doSomething () {
