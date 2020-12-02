@@ -7,24 +7,28 @@ _.mixin({ pascalCase: _.flow(_.camelCase, _.upperFirst) })
 module.exports = class extends Generator {
   constructor (args, opts) {
     super(args, opts)
-    this.argument('tag', { type: String, required: true })
+    this.argument('tag', { type: String, required: false })
   }
 
-  // async prompting () {
-  //   this.answers = await this.prompt([
-  //     {
-  //       type: 'input',
-  //       name: 'name',
-  //       message: 'ComponentName'
-  //     }
-  //   ])
-  // }
+  async prompting () {
+    if (!('tag' in this.options)) {
+      this.answers = await this.prompt([
+        {
+          type: 'input',
+          name: 'tag',
+          message: 'ComponentName'
+        }
+      ])
+    } else {
+      this.answers = this.options
+    }
+  }
 
   writing () {
     const props = {
-      tag: this.options.tag,
-      name: _.pascalCase(this.options.tag),
-      title: _.startCase(this.options.tag)
+      tag: this.answers.tag,
+      name: _.pascalCase(this.answers.tag),
+      title: _.startCase(this.answers.tag)
     }
 
     this.fs.copyTpl(
@@ -39,10 +43,10 @@ module.exports = class extends Generator {
       props
     )
 
-    // this.fs.copyTpl(
-    //   this.templatePath('stories/Default.story.vue'),
-    //   this.destinationPath(`${props.tag}/stories/Default.story.vue`),
-    //   props
-    // )
+    this.fs.copyTpl(
+      this.templatePath('stories/data.js'),
+      this.destinationPath(`${props.tag}/stories/data.js`),
+      props
+    )
   }
 }
