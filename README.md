@@ -15,6 +15,11 @@ Then generate your new project:
 ```bash
 yo vue-component component-name
 ```
+or:
+```bash
+yo vue-componen
+```
+... and follow the prompts
 
 ## Getting To Know Yeoman
 
