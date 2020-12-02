@@ -5,44 +5,53 @@
 </template>
 
 <script>
+// import ComponentName from "@/components/component-name/ComponentName.vue"
+
 export default {
   name: '<%= name %>',
 
-  // props: {
-  //   propName: {
-  //     type: String, // String, Number, Boolean, Function, Object, Array
-  //     required: true,
-  //     default: null
-  //   }
+  // components: {
+  //   ComponentName
   // },
 
-  // data () {
-  //   return {
-  //     key: true
-  //   }
-  // },
+  props: {
+    input: {
+      type: Array,
+      default: () => []
+    }
+  },
+
+  data () {
+    return {
+      value: true
+    }
+  },
 
   // computed: {
-  //   property () {
+  //   propertyName () {
   //     return true
+  //   }
+  // },
+
+  // watch: {
+  //   keyName: function (val, oldVal) {},
+  //   propertyName: {
+  //     handler: 'doSomething',
+  //     immediate: false,
+  //     deep: false
   //   }
   // },
 
   methods: {
     doSomething () {
-      // tell the parent that we were clicked, pass data along
-      this.$emit('clicked', { key: 'value' })
+      // tell my parent that I was clicked, pass some data along
+      this.$emit('clicked', { key: this.value })
     }
   }
-
-  // watch: {
-  //   name: (val, oldVal) => {}
-  // }
 }
 </script>
 
 <style lang="less">
 .<%= tag %> {
-  
 }
 </style>
