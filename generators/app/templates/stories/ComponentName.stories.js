@@ -1,7 +1,7 @@
 import <%= name %> from '../<%= name %>.vue'
 
 import { action } from '@storybook/addon-actions'
-import SampleData from './data.js'
+import SampleData from './data.json'
 
 export default {
   title: 'TODO/<%= title %>',
@@ -16,7 +16,7 @@ const actionsData = {
 }
 
 const propData = {
-  input: SampleData
+  input: SampleData.data
 }
 
 const DefaultTemplate = (args, { argTypes }) => ({
